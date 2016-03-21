@@ -11,6 +11,11 @@ class Main extends React.Component {
     };
   }
 
+  // static propTypes = {
+  //   states: React.PropTypes.object.isRequired,
+  //   action: React.PropTypes.object.isRequired,
+  // }
+
   handleRequestClose() {
     this.setState({
       open: false,
@@ -24,6 +29,7 @@ class Main extends React.Component {
   }
 
   render() {
+    console.log(this.props.actions)
     return (
      <div>
         Hi I am apple
