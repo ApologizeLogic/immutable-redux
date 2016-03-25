@@ -11,10 +11,9 @@ class Main extends React.Component {
     };
   }
 
-  // static propTypes = {
-  //   states: React.PropTypes.object.isRequired,
-  //   action: React.PropTypes.object.isRequired,
-  // }
+  componentWillMount() {
+    console.log(this.props.actions)
+  }
 
   handleRequestClose() {
     this.setState({
@@ -29,13 +28,17 @@ class Main extends React.Component {
   }
 
   render() {
-    console.log(this.props.actions)
     return (
      <div>
         Hi I am apple
      </div>
-    );
+     );
   }
 }
+
+Main.propTypes = {
+    states: React.PropTypes.object.isRequired,
+    actions: React.PropTypes.object.isRequired,
+};
 
 export default Main;
