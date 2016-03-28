@@ -2,12 +2,14 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import injectTapEventPlugin from 'react-tap-event-plugin';
 import { bindActionCreators } from 'redux'
-import { browserHistory } from 'react-router'
-import { syncHistoryWithStore } from 'react-router-redux'
+import { Router, Route, browserHistory, hashHistory } from 'react-router'
+import { syncHistoryWithStore, selectLocationState } from 'react-router-redux'
 
 import ActionCreators from './actions'
 import configureStore from './store'
-import Main from './components/Main'; // Our custom react component
+import Main from './components/Main' // Our custom react component
+import ShowCase from './components/ShowCase'
+import ShowList from './components/ShowList'
 
 //Needed for onTouchTap
 //Can go away when react 1.0 release
@@ -19,6 +21,17 @@ const store = configureStore();
 const states = store.getState();
 const actions = bindActionCreators(ActionCreators, store.dispatch);
 
+console.log(states.toJS())
+
+const history = syncHistoryWithStore(browserHistory, store, {selectLocationState: state => state.get('routing').toJS()});
+
 // Render the main app react component into the app div.
 // For more details see: https://facebook.github.io/react/docs/top-level-api.html#react.render
-ReactDOM.render(<Main states={states} actions={actions} />, document.getElementById('app'));
+ReactDOM.render((
+  <Router history={history}>
+    <Route path="/" component={Main}>
+      <Route path="about" component={ShowCase} />
+      <Route path="inbox" component={ShowList} />
+    </Route>
+  </Router>
+), document.getElementById('app'));

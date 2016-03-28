@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router'
 
 class Main extends React.Component {
   constructor(props, context) {
@@ -9,10 +10,6 @@ class Main extends React.Component {
     this.state = {
       open: false,
     };
-  }
-
-  componentWillMount() {
-    console.log(this.props.actions)
   }
 
   handleRequestClose() {
@@ -30,15 +27,12 @@ class Main extends React.Component {
   render() {
     return (
      <div>
-        Hi I am apple
+        {this.props.children || "Hi I am apple"}
+        <Link to='about'>About</Link>
+        <Link to='inbox'>Inbox</Link>
      </div>
      );
   }
 }
-
-Main.propTypes = {
-    states: React.PropTypes.object.isRequired,
-    actions: React.PropTypes.object.isRequired,
-};
 
 export default Main;
