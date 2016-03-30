@@ -10,6 +10,7 @@ import configureStore from './store'
 import Main from './components/Main' // Our custom react component
 import ShowCase from './components/ShowCase'
 import ShowList from './components/ShowList'
+import MotionDemo from './components/MotionDemo'
 
 //Needed for onTouchTap
 //Can go away when react 1.0 release
@@ -31,7 +32,8 @@ ReactDOM.render((
   <Router history={history}>
     <Route path="/" component={Main}>
       <Route path="about" component={ShowCase} />
-      <Route path="inbox" component={ShowList} />
+      <Route path="inbox" component={MotionDemo} />
+      <Route path="apple" component={ShowList} />
     </Route>
   </Router>
 ), document.getElementById('app'));

@@ -12,13 +12,13 @@ const initialState = Immutable.fromJS({
 export default createReducer(initialState, {
 
   [ActionTypes.REQUEST_JSON]: (pageStatus, action) => {
-    pageStatus.merge({
+    return pageStatus.merge({
       isFetching: true,
     })
   },
 
   [ActionTypes.RECIEVE_JSON]: (pageStatus, action) => {
-    pageStatus.merge({
+    return pageStatus.merge({
       isFetching: false,
       mdata: action.json,
     })
@@ -26,7 +26,7 @@ export default createReducer(initialState, {
 
   [ActionTypes.CHANGE_CLASS]: (pageStatus, action) => {
     console.log(pageStatus)
-    pageStatus.merge({
+    return pageStatus.merge({
       appCurrentClass: action.json,
     })
   },

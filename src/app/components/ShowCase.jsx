@@ -10,7 +10,7 @@ class ShowCase extends React.Component {
   }
 
   componentWillMount() {
-    //console.log(this.props.actions)
+    console.log(this.props)
   }
 
   render() {
