@@ -30,7 +30,7 @@ const history = syncHistoryWithStore(browserHistory, store, {selectLocationState
 // Render the main app react component into the app div.
 // For more details see: https://facebook.github.io/react/docs/top-level-api.html#react.render
 ReactDOM.render((
-  <Router history={hashHistory}>
+  <Router history={history}>
     <Route path="/" component={Main}>
       <IndexRoute component={Login} />
       <Route path="/about" component={ShowCase}>
