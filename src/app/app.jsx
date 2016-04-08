@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import injectTapEventPlugin from 'react-tap-event-plugin';
 import { bindActionCreators } from 'redux'
-import { Router, Route, browserHistory, hashHistory } from 'react-router'
+import { Router, Route, IndexRoute, browserHistory, hashHistory } from 'react-router'
 import { syncHistoryWithStore, selectLocationState } from 'react-router-redux'
 
 import ActionCreators from './actions'
@@ -11,6 +11,9 @@ import Main from './components/Main' // Our custom react component
 import ShowCase from './components/ShowCase'
 import ShowList from './components/ShowList'
 import MotionDemo from './components/MotionDemo'
+import Login from './components/Login'
+import MoiveList from './components/MoiveList'
+import CinemaList from './components/CinemaList'
 
 //Needed for onTouchTap
 //Can go away when react 1.0 release
@@ -29,11 +32,15 @@ const history = syncHistoryWithStore(browserHistory, store, {selectLocationState
 // Render the main app react component into the app div.
 // For more details see: https://facebook.github.io/react/docs/top-level-api.html#react.render
 ReactDOM.render((
-  <Router history={history}>
+  <Router history={hashHistory}>
     <Route path="/" component={Main}>
-      <Route path="about" component={ShowCase} />
-      <Route path="inbox" component={MotionDemo} />
-      <Route path="apple" component={ShowList} />
+      <IndexRoute component={Login} />
+      <Route path="/about" component={ShowCase}>
+        <Route path="/about/cinema" component={CinemaList} />
+        <Route path="/about/moive" component={MoiveList} />
+      </Route>
+      <Route path="/inbox" component={MotionDemo} />
+      <Route path="/apple" component={ShowList} />
     </Route>
   </Router>
 ), document.getElementById('app'));
