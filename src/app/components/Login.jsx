@@ -13,6 +13,11 @@ const dataSource2 = [];
 const style = {
   width: 135,
   margin: '50px 12px',
+  flex: 1,
+}
+
+const styleFlex = {
+  flex: 1,
 };
 
 const styleInput = {
@@ -75,12 +80,14 @@ class ShowList extends React.Component {
             hintText="用户名"
             hintStyle={styleInput}
             onChange={this.handleUpdateInput}
+            style={styleFlex}
           /><br />
           <TextField
             hintText="密码"
             type="password"
             hintStyle={styleInput}
             onChange={this.handleUpdatePassWork}
+            style={styleFlex}
           />
           <RaisedButton label="登录" style={style} onClick={this.sublimeFrom} />
           <Snackbar

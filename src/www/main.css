@@ -41,6 +41,7 @@ a {
 .login-from {
   padding-top: 35vh;
   width: 100%;
+  display: -webkit-box;
   -webkit-align-items: center;
 }
 
