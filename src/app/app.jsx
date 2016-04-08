@@ -9,7 +9,6 @@ import ActionCreators from './actions'
 import configureStore from './store'
 import Main from './components/Main' // Our custom react component
 import ShowCase from './components/ShowCase'
-import MotionDemo from './components/MotionDemo'
 import Login from './components/Login'
 import MoiveList from './components/MoiveList'
 import CinemaList from './components/CinemaList'
