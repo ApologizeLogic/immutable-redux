@@ -41,6 +41,7 @@ a {
 .login-from {
   padding-top: 35vh;
   width: 100%;
+  -webkit-align-items: center;
 }
 
 .demo8-outer {

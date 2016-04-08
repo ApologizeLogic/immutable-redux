@@ -23,8 +23,6 @@ const store = configureStore();
 const states = store.getState();
 const actions = bindActionCreators(ActionCreators, store.dispatch);
 
-console.log(states.toJS())
-
 const history = syncHistoryWithStore(browserHistory, store, {selectLocationState: state => state.get('routing').toJS()});
 
 // Render the main app react component into the app div.

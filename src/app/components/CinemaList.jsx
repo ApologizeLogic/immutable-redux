@@ -17,27 +17,27 @@ import DatePicker from 'material-ui/lib/date-picker/date-picker';
 
 const cinema = [
   {
-    img: 'http://img1.maka.im/JHW037HA6PTX83Q4YVF3',
+    img: 'https://s-media-cache-ak0.pinimg.com/avatars/TommyHili_1460100425_140.jpg',
     name: '影院名称',
     description: '影院介绍和地址',
   },
   {
-    img: 'http://img1.maka.im/JHW037HA6PTX83Q4YVF3',
+    img: 'https://s-media-cache-ak0.pinimg.com/avatars/TommyHili_1460100425_140.jpg',
     name: '影院名称',
     description: '影院介绍和地址',
   },
   {
-    img: 'http://img1.maka.im/JHW037HA6PTX83Q4YVF3',
+    img: 'https://s-media-cache-ak0.pinimg.com/avatars/TommyHili_1460100425_140.jpg',
     name: '影院名称',
     description: '影院介绍和地址',
   },
   {
-    img: 'http://img1.maka.im/JHW037HA6PTX83Q4YVF3',
+    img: 'https://s-media-cache-ak0.pinimg.com/avatars/TommyHili_1460100425_140.jpg',
     name: '影院名称',
     description: '影院介绍和地址',
   },
   {
-    img: 'http://img1.maka.im/JHW037HA6PTX83Q4YVF3',
+    img: 'https://s-media-cache-ak0.pinimg.com/avatars/TommyHili_1460100425_140.jpg',
     name: '影院名称',
     description: '影院介绍和地址',
   },
@@ -96,7 +96,7 @@ class CinemaList extends React.Component {
           <List>
             <Subheader>选择影院</Subheader>
             <ListItem
-              leftAvatar={<Avatar src="http://img1.maka.im/JHW037HA6PTX83Q4YVF3" />}
+              leftAvatar={<Avatar src="https://s-media-cache-ak0.pinimg.com/avatars/TommyHili_1460100425_140.jpg" />}
               primaryText="Brunch this weekend?"
               secondaryText={
                 <p>
@@ -108,7 +108,7 @@ class CinemaList extends React.Component {
             />
             <Divider inset={true} />
             <ListItem
-              leftAvatar={<Avatar src="http://img1.maka.im/JHW037HA6PTX83Q4YVF3" />}
+              leftAvatar={<Avatar src="https://s-media-cache-ak0.pinimg.com/avatars/TommyHili_1460100425_140.jpg" />}
               primaryText={
                 <p>Summer BBQ&nbsp;&nbsp;<span style={{color: lightBlack}}>4</span></p>
               }
@@ -123,7 +123,7 @@ class CinemaList extends React.Component {
             />
             <Divider inset={true} />
             <ListItem
-              leftAvatar={<Avatar src="http://img1.maka.im/JHW037HA6PTX83Q4YVF3" />}
+              leftAvatar={<Avatar src="https://s-media-cache-ak0.pinimg.com/avatars/TommyHili_1460100425_140.jpg" />}
               primaryText="Oui oui"
               secondaryText={
                 <p>
@@ -135,7 +135,7 @@ class CinemaList extends React.Component {
             />
             <Divider inset={true} />
             <ListItem
-              leftAvatar={<Avatar src="http://img1.maka.im/JHW037HA6PTX83Q4YVF3" />}
+              leftAvatar={<Avatar src="https://s-media-cache-ak0.pinimg.com/avatars/TommyHili_1460100425_140.jpg" />}
               primaryText="Birdthday gift"
               secondaryText={
                 <p>
@@ -147,7 +147,7 @@ class CinemaList extends React.Component {
             />
             <Divider inset={true} />
             <ListItem
-              leftAvatar={<Avatar src="http://img1.maka.im/JHW037HA6PTX83Q4YVF3" />}
+              leftAvatar={<Avatar src="https://s-media-cache-ak0.pinimg.com/avatars/TommyHili_1460100425_140.jpg" />}
               primaryText="Recipe to try"
               secondaryText={
                 <p>
