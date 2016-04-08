@@ -1,13 +1,13 @@
 import React from 'react';
 import getMuiTheme from 'material-ui/lib/styles/getMuiTheme';
 import MuiThemeProvider from 'material-ui/lib/MuiThemeProvider';
-import {grey50, grey700, grey100} from 'material-ui/lib/styles/colors';
+import {grey50, grey700, grey300} from 'material-ui/lib/styles/colors';
 
 const muiTheme = getMuiTheme({
   palette: {
     primary1Color: grey50,
-    primary2Color: grey100,
-    primary3Color: grey50,
+    primary2Color: grey700,
+    primary3Color: grey300,
   },
 }, {
   avatar: {

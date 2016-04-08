@@ -9,7 +9,6 @@ import ActionCreators from './actions'
 import configureStore from './store'
 import Main from './components/Main' // Our custom react component
 import ShowCase from './components/ShowCase'
-import ShowList from './components/ShowList'
 import MotionDemo from './components/MotionDemo'
 import Login from './components/Login'
 import MoiveList from './components/MoiveList'
@@ -39,8 +38,6 @@ ReactDOM.render((
         <Route path="/about/cinema" component={CinemaList} />
         <Route path="/about/moive" component={MoiveList} />
       </Route>
-      <Route path="/inbox" component={MotionDemo} />
-      <Route path="/apple" component={ShowList} />
     </Route>
   </Router>
 ), document.getElementById('app'));

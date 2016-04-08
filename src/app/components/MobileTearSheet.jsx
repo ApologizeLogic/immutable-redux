@@ -48,7 +48,6 @@ const MobileTearSheet = React.createClass({
         <div style={prepareStyles(styles.container)}>
           {this.props.children}
         </div>
-        <img style={prepareStyles(styles.bottomTear)} src="images/bottom-tear.svg" />
       </div>
     );
   },
