@@ -12,6 +12,7 @@ import ShowCase from './components/ShowCase'
 import Login from './components/Login'
 import MoiveList from './components/MoiveList'
 import CinemaList from './components/CinemaList'
+import FromText from './components/From'
 
 //Needed for onTouchTap
 //Can go away when react 1.0 release
@@ -28,12 +29,13 @@ const history = syncHistoryWithStore(browserHistory, store, {selectLocationState
 // Render the main app react component into the app div.
 // For more details see: https://facebook.github.io/react/docs/top-level-api.html#react.render
 ReactDOM.render((
-  <Router history={history}>
+  <Router history={hashHistory}>
     <Route path="/" component={Main}>
       <IndexRoute component={Login} />
       <Route path="/about" component={ShowCase}>
         <Route path="/about/cinema" component={CinemaList} />
         <Route path="/about/moive" component={MoiveList} />
+        <Route path="/about/from" component={FromText} />
       </Route>
     </Route>
   </Router>

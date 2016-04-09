@@ -1,4 +1,5 @@
 import React from 'react';
+import ReactDOM from 'react-dom';
 import MobileTearSheet from './MobileTearSheet';
 import List from 'material-ui/lib/lists/list';
 import ListItem from 'material-ui/lib/lists/list-item';
@@ -14,6 +15,8 @@ import Dialog from 'material-ui/lib/dialog';
 import FlatButton from 'material-ui/lib/flat-button';
 import RaisedButton from 'material-ui/lib/raised-button';
 import DatePicker from 'material-ui/lib/date-picker/date-picker';
+import TimePicker from 'material-ui/lib/time-picker/time-picker';
+import { Link } from 'react-router';
 
 const cinema = [
   {
@@ -77,6 +80,7 @@ class CinemaList extends React.Component {
   }
 
   handleClose() {
+    ReactDOM.findDOMNode(this.refs.linkTo).click()
     this.setState({open: false});
   }
 
@@ -97,11 +101,10 @@ class CinemaList extends React.Component {
             <Subheader>选择影院</Subheader>
             <ListItem
               leftAvatar={<Avatar src="https://s-media-cache-ak0.pinimg.com/avatars/TommyHili_1460100425_140.jpg" />}
-              primaryText="Brunch this weekend?"
+              primaryText="广州UME国际影城"
               secondaryText={
                 <p>
-                  <span style={{color: darkBlack}}>Brendan Lim</span> --
-                  I&apos;ll be in your neighborhood doing errands this weekend. Do you want to grab brunch?
+                  海珠区宝岗大道广百新一城广场6楼(与江南西交界)
                 </p>
               }
               secondaryTextLines={2}
@@ -110,12 +113,11 @@ class CinemaList extends React.Component {
             <ListItem
               leftAvatar={<Avatar src="https://s-media-cache-ak0.pinimg.com/avatars/TommyHili_1460100425_140.jpg" />}
               primaryText={
-                <p>Summer BBQ&nbsp;&nbsp;<span style={{color: lightBlack}}>4</span></p>
+                <p>哈艺时尚影城-白云YH城店</p>
               }
               secondaryText={
                 <p>
-                  <span style={{color: darkBlack}}>to me, Scott, Jennifer</span> --
-                  Wish I could come, but I&apos;m out of town this weekend.
+                  广州市白云区鹤龙一路208号商业楼三层
                 </p>
               }
               secondaryTextLines={2}
@@ -124,11 +126,10 @@ class CinemaList extends React.Component {
             <Divider inset={true} />
             <ListItem
               leftAvatar={<Avatar src="https://s-media-cache-ak0.pinimg.com/avatars/TommyHili_1460100425_140.jpg" />}
-              primaryText="Oui oui"
+              primaryText="广州华影梅花园影城"
               secondaryText={
                 <p>
-                  <span style={{color: darkBlack}}>Grace Ng</span> --
-                  Do you have Paris recommendations? Have you ever been?
+                  广州市白云区广州大道北28号梅花园商业广场5楼
                 </p>
               }
               secondaryTextLines={2}
@@ -136,11 +137,10 @@ class CinemaList extends React.Component {
             <Divider inset={true} />
             <ListItem
               leftAvatar={<Avatar src="https://s-media-cache-ak0.pinimg.com/avatars/TommyHili_1460100425_140.jpg" />}
-              primaryText="Birdthday gift"
+              primaryText="正佳飞扬影城"
               secondaryText={
                 <p>
-                  <span style={{color: darkBlack}}>Kerem Suer</span> --
-                  Do you have any ideas what we can get Heidi for her birthday? How about a pony?
+                  天河路228号正佳广场七楼（体育中心站 D出口）
                 </p>
               }
               secondaryTextLines={2}
@@ -148,16 +148,16 @@ class CinemaList extends React.Component {
             <Divider inset={true} />
             <ListItem
               leftAvatar={<Avatar src="https://s-media-cache-ak0.pinimg.com/avatars/TommyHili_1460100425_140.jpg" />}
-              primaryText="Recipe to try"
+              primaryText="天娱广场天河电影城"
               secondaryText={
                 <p>
-                  <span style={{color: darkBlack}}>Raquel Parrado</span> --
-                  We should eat this: grated squash. Corn and tomatillo tacos.
+                  广州市天河路623号岗顶天娱广场5楼
                 </p>
               }
               secondaryTextLines={2}
             />
           </List>
+          <Link to="/about/from" ref='linkTo'></Link>
          </MobileTearSheet>
          <Dialog
             title="请选择观影日期"
@@ -168,6 +168,7 @@ class CinemaList extends React.Component {
           >
             请选择合适的时间观看电影
             <DatePicker hintText="Date Picker" />
+            <TimePicker hintText="12hr Format" />
           </Dialog>
      </div>
     );

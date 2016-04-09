@@ -42,7 +42,7 @@ class ShowCase extends React.Component {
     return (
       <div style={styles.root}>
         <AppBar
-          title={<span onClick={()=>{this.setState({open: true})}}>热门电影</span>}
+          title={<span onClick={()=>{this.setState({open: true})}}>微信电影订票</span>}
           iconClassNameRight="muidocs-icon-navigation-expand-more"
           style={styles.appBar}
         />
@@ -54,7 +54,7 @@ class ShowCase extends React.Component {
           onRequestChange={(open) => this.setState({open})}
         >
           <AppBar iconElementLeft={<IconButton><ActionHome /></IconButton>} title="我的电影" style={styles.appBar}/>
-          <MenuItem onTouchTap={this.handleClose}><Link to="/about/moive" ref='linkTo'>我的信息</Link></MenuItem>
+          <MenuItem onTouchTap={this.handleClose}><Link to="/about/moive" ref='linkTo'>热门电影</Link></MenuItem>
           <MenuItem onTouchTap={this.handleClose}><Link to="/about/cinema" ref='linkTo'>电影订票</Link></MenuItem>
         </LeftNav>
       </div>

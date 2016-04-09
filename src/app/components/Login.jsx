@@ -16,6 +16,11 @@ const style = {
   flex: 1,
 }
 
+const styleColor = {
+  color: '#fff',
+  fontSize: '16px',
+}
+
 const styleFlex = {
   flex: 1,
 };
@@ -79,6 +84,7 @@ class ShowList extends React.Component {
           <TextField
             hintText="用户名"
             hintStyle={styleInput}
+            inputStyle={styleColor}
             onChange={this.handleUpdateInput}
             style={styleFlex}
           /><br />
@@ -86,6 +92,7 @@ class ShowList extends React.Component {
             hintText="密码"
             type="password"
             hintStyle={styleInput}
+            inputStyle={styleColor}
             onChange={this.handleUpdatePassWork}
             style={styleFlex}
           />
