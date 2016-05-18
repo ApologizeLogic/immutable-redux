@@ -8,11 +8,7 @@ import { syncHistoryWithStore, selectLocationState } from 'react-router-redux'
 import ActionCreators from './actions'
 import configureStore from './store'
 import Main from './components/Main' // Our custom react component
-import ShowCase from './components/ShowCase'
-import Login from './components/Login'
-import MoiveList from './components/MoiveList'
-import CinemaList from './components/CinemaList'
-import FromText from './components/From'
+import motionDemo from './components/motionDemo'
 
 //Needed for onTouchTap
 //Can go away when react 1.0 release
@@ -31,12 +27,7 @@ const history = syncHistoryWithStore(browserHistory, store, {selectLocationState
 ReactDOM.render((
   <Router history={hashHistory}>
     <Route path="/" component={Main}>
-      <IndexRoute component={Login} />
-      <Route path="/about" component={ShowCase}>
-        <Route path="/about/cinema" component={CinemaList} />
-        <Route path="/about/moive" component={MoiveList} />
-        <Route path="/about/from" component={FromText} />
-      </Route>
+      <IndexRoute component={motionDemo} />
     </Route>
   </Router>
 ), document.getElementById('app'));
