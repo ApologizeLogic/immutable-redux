@@ -13,7 +13,7 @@ var config = {
   ],
   //Config options on how to interpret requires imports
   resolve: {
-    extensions: ["", ".js", ".jsx"]
+    extensions: ["", ".js", ".jsx", ".css"]
     //node_modules: ["web_modules", "node_modules"]  (Default Settings)
   },
   //Server Configuration options
