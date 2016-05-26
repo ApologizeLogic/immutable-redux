@@ -29,10 +29,10 @@ const Demo = React.createClass({
   },
 
   componentDidMount() {
-    window.addEventListener('touchmove', this.handleTouchMove);
-    window.addEventListener('touchend', this.handleMouseUp);
-    window.addEventListener('mousemove', this.handleMouseMove);
-    window.addEventListener('mouseup', this.handleMouseUp);
+    // window.addEventListener('touchmove', this.handleTouchMove);
+    // window.addEventListener('touchend', this.handleMouseUp);
+    // window.addEventListener('mousemove', this.handleMouseMove);
+    // window.addEventListener('mouseup', this.handleMouseUp);
   },
 
   handleTouchStart(key, pressLocation, e) {

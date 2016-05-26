@@ -1,7 +1,7 @@
 import React from 'react';
 import { addClass, removeClass } from '../utils/ReactKit'
 
-let firstTouchY, initialScroll, shareWrapH
+let initialScroll, shareWrapH
 
 // from http://www.sberry.me/articles/javascript-event-throttling-debouncing
 function throttle(fn, delay) {
@@ -20,53 +20,83 @@ class Main extends React.Component {
   constructor(props, context) {
     super(props, context);
 
+    this.addListener = this.addListener.bind(this);
+    this.touchStart = this.touchStart.bind(this);
+    this._touchMove = this.touchMove.bind(this);
+    this._touchEnd = this.touchEnd.bind(this);
+
     this.state = {
       open: false,
+      opacity: 0,
+      blur: 0,
+      firstTouchX: 0,
     };
   }
 
   componentDidMount() {
+    this.addListener()
   }
 
   addListener() {
     let touchBody = this.refs.touchbody
-    touchBody.addEventListener('touchstart', this.touchStart);
-    touchBody.addEventListener('touchmove', this.touchMove);
-    touchBody.addEventListener('touchend', this.touchEnd);
+    touchBody.addEventListener('touchstart', this._touchStart);
+    touchBody.addEventListener('touchmove', this._touchMove);
+    touchBody.addEventListener('touchend', this._touchEnd);
   }
 
-  touchStart(e) {
+  touchStart(ev) {
     let touchobj = ev.changedTouches[0]
 
-    firstTouchY = parseInt(touchobj.clientY);
-    //initialScroll = window.pageYOffset;
+    this.state.firstTouchX = parseInt(touchobj.clientX);
+    //initialScroll = window.pageXOffset;
 
   }
 
-  touchMove(e) {
+  touchMove(ev) {
     let moving = () => {
       let touchobj = ev.changedTouches[0]
-      let touchY = parseInt(touchobj.clientY)
-      let touchYDelta = touchY - firstTouchY
+      let touchX = parseInt(touchobj.clientX)
+      let touchXDelta = touchX - this.state.firstTouchX
 
-      if ( touchYDelta > 0  ) {
+      if ( touchXDelta > 0  ) {
         ev.preventDefault();
-      } else if ( touchYDelta < 0 ) {
-        firstTouchY = touchY
+      } else if ( touchXDelta < 0 ) {
+        this.state.firstTouchX = touchX
         return
       }
+
+      this.setState({
+        opacity: touchXDelta/300,
+        blur: touchXDelta/300 * 20,
+      })
+
     }
 
     throttle(moving(), 60)
   }
 
   touchEnd() {
-
+    this.setState({
+      opacity: 0,
+      blur: 0,
+    })
   }
 
   render() {
+    let menuStyle = {
+      opacity: this.state.opacity,
+      //WebkitFilter: `blur(${this.state.blur}px)`,
+      transition: this.state.opacity === 0 ? `all .5s ease` : `initial`,
+    }
+
+    let bodyStyle = {
+      WebkitFilter: `blur(${this.state.blur}px)`,
+      transition: this.state.opacity === 0 ? `all .5s ease` : `initial`,
+    }
+
     return (
-      <div ref='touchbody'>
+      <div style={bodyStyle} ref='touchbody'>
+        <div className='touch-menu' style={menuStyle}></div>
         {this.props.children || "Hi I am apple"}
       </div>
      );
