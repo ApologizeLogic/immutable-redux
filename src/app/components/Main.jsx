@@ -21,7 +21,7 @@ class Main extends React.Component {
     super(props, context);
 
     this.addListener = this.addListener.bind(this);
-    this.touchStart = this.touchStart.bind(this);
+    this._touchStart = this.touchStart.bind(this);
     this._touchMove = this.touchMove.bind(this);
     this._touchEnd = this.touchEnd.bind(this);
 
@@ -34,7 +34,7 @@ class Main extends React.Component {
   }
 
   componentDidMount() {
-    this.addListener()
+    //this.addListener()
   }
 
   addListener() {
@@ -58,17 +58,17 @@ class Main extends React.Component {
       let touchX = parseInt(touchobj.clientX)
       let touchXDelta = touchX - this.state.firstTouchX
 
-      if ( touchXDelta > 0  ) {
+      if ( touchXDelta > 50  ) {
         ev.preventDefault();
+
+        this.setState({
+          opacity: touchXDelta/300,
+          blur: touchXDelta/300 * 20,
+        })
       } else if ( touchXDelta < 0 ) {
         this.state.firstTouchX = touchX
         return
       }
-
-      this.setState({
-        opacity: touchXDelta/300,
-        blur: touchXDelta/300 * 20,
-      })
 
     }
 
