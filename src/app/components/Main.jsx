@@ -1,4 +1,5 @@
 import React from 'react';
+import { bindActionCreators } from 'redux'
 import { addClass, removeClass } from '../utils/ReactKit'
 import ActionCreators from '../actions'
 import configureStore from '../store'
