@@ -27,7 +27,7 @@ class ShowList extends React.Component {
   render() {
     return (
      <div className='show-video' ref='modelbody' onClick={this.setVideoTime} >
-        <video ref='modelvideo' width='540px' controls="controls" src="../img/MaterialMotionHero_Spec_0505.webm"></video>
+        <video ref='modelvideo' width='540px' controls="controls" src="https://material-design.storage.googleapis.com/publish/material_v_9/0B14F_FSUCc01VDAtSVF3X0F5VTg/MaterialMotionHero_Spec_0505.webm"></video>
      </div>
      );
   }
