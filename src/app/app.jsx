@@ -9,6 +9,7 @@ import ActionCreators from './actions'
 import configureStore from './store'
 import Main from './components/Main' // Our custom react component
 import motionDemo from './components/motionDemo'
+import video from './components/ShowList'
 
 //Needed for onTouchTap
 //Can go away when react 1.0 release
@@ -27,7 +28,7 @@ const history = syncHistoryWithStore(browserHistory, store, {selectLocationState
 ReactDOM.render((
   <Router history={hashHistory}>
     <Route path="/" component={Main}>
-      <IndexRoute component={motionDemo} />
+      <IndexRoute component={video} />
     </Route>
   </Router>
 ), document.getElementById('app'));

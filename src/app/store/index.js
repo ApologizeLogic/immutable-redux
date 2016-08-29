@@ -1,15 +1,12 @@
-import { createStore, applyMiddleware, compose } from 'redux'
-import thunk from 'redux-thunk'
-import rootReducer from '../reducers'
+import createStoreDev from './store.dev'
+import createStoreProd from './store.prod'
 
-const finalCreateStore = compose(
-  applyMiddleware(thunk),
-  //chrome redux devtools https://github.com/zalmoxisus/redux-devtools-extension
-  window.devToolsExtension ? window.devToolsExtension() : f => f
-)(createStore)
+let createStore
 
-//const finalCreateStore = applyMiddleware(thunk)(createStore)
-
-export default function configureStore(initialState) {
-  return finalCreateStore(rootReducer, initialState)
+if (process.env.NODE_ENV === 'production') {
+  createStore = createStoreProd
+} else {
+  createStore = createStoreDev
 }
+
+export default createStore

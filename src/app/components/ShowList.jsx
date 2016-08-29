@@ -7,16 +7,27 @@ class ShowList extends React.Component {
     this.state = {
       open: false,
     };
+
+    this.setVideoTime = this.setVideoTime.bind(this);
   }
 
   componentWillMount() {
     //console.log(this.props.actions)
   }
 
+  componentDidMount() {
+    this.refs.modelvideo.play()
+  }
+
+  setVideoTime() {
+    console.log(this.refs.modelvideo.currentTime)
+    //this.refs.modelvideo.currentTime = 34
+  }
+
   render() {
     return (
-     <div>
-        Hi I am iPhone5S
+     <div className='show-video' ref='modelbody' onClick={this.setVideoTime} >
+        <video ref='modelvideo' width='540px' controls="controls" src="../img/MaterialMotionHero_Spec_0505.webm"></video>
      </div>
      );
   }

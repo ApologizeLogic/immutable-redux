@@ -1,7 +1,7 @@
 import React from 'react';
 import { addClass, removeClass } from '../utils/ReactKit'
 
-let initialScroll, shareWrapH
+let firstTouchX, initialScroll, shareWrapH
 
 // from http://www.sberry.me/articles/javascript-event-throttling-debouncing
 function throttle(fn, delay) {
@@ -29,7 +29,6 @@ class Main extends React.Component {
       open: false,
       opacity: 0,
       blur: 0,
-      firstTouchX: 0,
     };
   }
 
@@ -47,7 +46,7 @@ class Main extends React.Component {
   touchStart(ev) {
     let touchobj = ev.changedTouches[0]
 
-    this.state.firstTouchX = parseInt(touchobj.clientX);
+    firstTouchX = parseInt(touchobj.clientX);
     //initialScroll = window.pageXOffset;
 
   }
@@ -56,7 +55,7 @@ class Main extends React.Component {
     let moving = () => {
       let touchobj = ev.changedTouches[0]
       let touchX = parseInt(touchobj.clientX)
-      let touchXDelta = touchX - this.state.firstTouchX
+      let touchXDelta = touchX - firstTouchX
 
       if ( touchXDelta > 50  ) {
         ev.preventDefault();
@@ -66,7 +65,7 @@ class Main extends React.Component {
           blur: touchXDelta/300 * 20,
         })
       } else if ( touchXDelta < 0 ) {
-        this.state.firstTouchX = touchX
+        firstTouchX = touchX
         return
       }
 
@@ -87,6 +86,7 @@ class Main extends React.Component {
       opacity: this.state.opacity,
       //WebkitFilter: `blur(${this.state.blur}px)`,
       transition: this.state.opacity === 0 ? `all .5s ease` : `initial`,
+      display: 'none',
     }
 
     let bodyStyle = {
