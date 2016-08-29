@@ -1,5 +1,11 @@
 import React from 'react';
 import { addClass, removeClass } from '../utils/ReactKit'
+import ActionCreators from '../actions'
+import configureStore from '../store'
+
+const store = configureStore();
+const actions = bindActionCreators(ActionCreators, store.dispatch);
+
 
 let firstTouchX, initialScroll, shareWrapH
 
@@ -26,6 +32,7 @@ class Main extends React.Component {
     this._touchEnd = this.touchEnd.bind(this);
 
     this.state = {
+      states: {},
       open: false,
       opacity: 0,
       blur: 0,
@@ -33,6 +40,11 @@ class Main extends React.Component {
   }
 
   componentDidMount() {
+    store.subscribe(() => {
+      this.setState({
+        states: store.getState().toJS(),
+      })
+    })
     //this.addListener()
   }
 
@@ -97,7 +109,10 @@ class Main extends React.Component {
     return (
       <div style={bodyStyle} ref='touchbody'>
         <div className='touch-menu' style={menuStyle}></div>
-        {this.props.children || "Hi I am apple"}
+        {this.props.children && React.cloneElement(this.props.children, {
+            actions: actions,
+            states: this.state.states,
+        })}
       </div>
      );
   }

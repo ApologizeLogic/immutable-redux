@@ -18,9 +18,7 @@ import video from './components/ShowList'
 injectTapEventPlugin();
 
 const store = configureStore();
-const states = store.getState();
 const actions = bindActionCreators(ActionCreators, store.dispatch);
-
 const history = syncHistoryWithStore(browserHistory, store, {selectLocationState: state => state.get('routing').toJS()});
 
 // Render the main app react component into the app div.
